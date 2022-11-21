@@ -54,7 +54,7 @@
   $: pennyStacksWS_stateMin = [3];
   $: pennyStacksWS_gap = [4];
   $: center = [];
-  $: blank = [5];
+  $: blank = [5,6];
 
   $: svgName = blur.includes(value)
     ? "MedianWage_blur_app"
