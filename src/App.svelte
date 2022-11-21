@@ -41,6 +41,13 @@
     "<p>And finally: the ink <span style = 'color: #7695c4; font-weight: 700'>pen</span>. Crucial for writing, learning, and communicating with others,  the <span style = 'color: #7695c4; font-weight: 700'>pen</span> is an indispensable tool for day-to-day life both inside and outside of prison. So as valuable as this miscellaneous item is, what’s it cost for those incarcerated?</p>",
     "<p>Not every state prison commissary sampled made ink <span style = 'color: #7695c4; font-weight: 700'>pens</span> available for purchase (e.g., <span style = 'color: grey; font-weight: 700'>Montana</span>, <span style = 'color: grey; font-weight: 700'>Nebraska</span>, and <span style = 'color: grey; font-weight: 700'>Utah</span>).<br></br>However with these pen-less states and <span style = 'color: #ff9f3f; font-weight: 700'>Arkansas</span>, <span style = 'color: #ff9f3f; font-weight: 700'>Georgia</span>, and <span style = 'color: #ff9f3f; font-weight: 700'>Texas</span> aside (i.e., states where incarcerated folks aren’t paid for their labor), the hours of work that incarcerated people have to perform at the median prison wage to be able to afford the average prison commissary ink <span style = 'color: #7695c4; font-weight: 700'>pen</span> was calculated across the US.<br></br>While incarcerated folks in <span style = 'color: #ff9f3f; font-weight: 700'>Minnesota</span> may have to put in only <span style = 'color: #7695c4; font-weight: 700'>12 minutes</span> of labor to be able to purchase an ink pen, folks incarcerated in <span style = 'color: #ff9f3f; font-weight: 700'>Oklahoma</span> have to put in more than <span style = 'color: #7695c4; font-weight: 700'>16 hours</span> of work for that same pen. And this basically means that the difference between being incarcerated in <span style = 'color: #ff9f3f; font-weight: 700'>Oklahoma</span> instead of <span style = 'color: #ff9f3f; font-weight: 700'>Minnesota</span> is more than <span style = 'color: #7695c4; font-weight: 700'>8030%</span> more labor just to be able to write a letter home to your loved ones.</p>",
     "<p></p>",
+    "<p></p>",
+    "<p></p>",
+    "<p></p>",
+    "<p></p>",
+    "<p></p>",
+    "<p></p>",
+    "<p></p>",
   ];
 
   // $: dollarSteps = [0, 1, 2, 3, 4, 5]
@@ -69,9 +76,9 @@
   $: riceIcon = [13];
   $: laborPerRice = [14];
   $: penIcon = [15];
-  $: LaborPerPen = [16, 17];
+  $: LaborPerPen = [16];
   $: center = [];
-  $: blank = [8];
+  $: blank = [8, 17];
 
   $: svgName = blur.includes(value)
     ? "MedianWage_blur_app"
@@ -362,14 +369,14 @@
         </div>
       {/if} -->
       </div>
-      <div class="hero">
+      <!-- <div class="hero">
         <h1>Thanks!</h1>
         <h2>
           <a href="https://twitter.com/CL_Rothschild" target="_blank"
             >Questions and Tips</a
           >
         </h2>
-      </div>
+      </div> -->
     </section>
   {:else}
     <h2>
