@@ -1,4 +1,5 @@
 <script>
+    import imgUrl from '../svg/RunningDollar_app.png'
 </script>
 
 <div class="title">
@@ -14,7 +15,7 @@
     </h4>
     <br />
     <img
-        src="../svg/RunningDollar.svg"
+        src={imgUrl}
         alt="Visualization related to what a dollar costs for folks incarcerated in the US"
         width="75%"
     />

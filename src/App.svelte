@@ -81,8 +81,10 @@
 
   $: laptop = innerWidth > 800;
 
-  $: imgWidth = innerWidth * 0.8;
-  $: imgHeight = innerHeight * 0.9;
+  // $: imgWidth = innerWidth>1200?innerWidth * 0.6:innerWidth * 0.7;
+  // $: imgHeight = innerHeight * 0.9;
+  $: imgWidth = 800;
+  $: imgHeight = 800;
 
   $: innerWidth = 0;
   $: innerHeight = 0;
