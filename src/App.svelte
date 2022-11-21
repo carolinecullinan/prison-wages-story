@@ -8,6 +8,8 @@
   import Intro from "./lib/Intro.svelte";
   import Arrow from "./lib/Arrow.svelte";
 
+  import laborPerDollarUrl from './svg/LaborPerDollar_app.png'
+
   // let shape = 'circles'
 
   // const shapeShift=(s)=>{
@@ -72,7 +74,7 @@
     : pennyStacksWS_gap.includes(value)
     ? "MedianWage_WS_gap"
     : laborPerDollar.includes(value)
-    ? "LaborPerDollar_app"
+    ? laborPerDollarUrl
     : "MedianWage_blur_app";
 
   $: align = center.includes(value) ? "center" : "left";
@@ -169,7 +171,11 @@
           </div> -->
           <!-- <img href="./public/svg/{svgName}.svg" alt="Visualization related to what a dollar costs for folks incarcerated in the US" width="70%"> -->
           <svg width={imgWidth} height={imgHeight}>
-            <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {#if !laborPerDollar.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image xlink:href={svgName} width="90%" style="transform:translate(80px, -50px)"/>
+            {/if}
             <!-- <image xlink:href="./public/svg/{svgName}.svg" width="100%" /> -->
             {#if value === 1}
               <Arrow x1={80} x2={50} y1={100} y2={100} />
@@ -200,7 +206,7 @@
           {/if}
 
           {#if value === 4}
-          <Arrow x1={580} x2={530} y1={510} y2={540} />
+          <Arrow x1={650} x2={600} y1={510} y2={540} />
           {#each 'Incarcerated workers in //Arkansas, Georgia, and// Texas earn 0 $/hour'.split('//') as substring, i}
             <text 
             class="annotation" 
