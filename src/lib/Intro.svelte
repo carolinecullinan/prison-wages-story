@@ -14,7 +14,7 @@
     </h4>
     <br />
     <img
-        src="./public/svg/RunningDollar.svg"
+        src="../svg/RunningDollar.svg"
         alt="Visualization related to what a dollar costs for folks incarcerated in the US"
         width="75%"
     />
