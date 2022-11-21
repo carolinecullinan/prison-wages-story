@@ -19,10 +19,10 @@
   const steps = [
     "<p>Firstly, before we can quantify the cost of a dollar in US prisons, we need to understand wages earned by incarcerated people in the US.<br></br> Different prison jobs are compensated at various rates across states. Regardless, we can use a <span style = 'color: #7695c4; font-weight: 700'>median wage</span> for prison labor as a state-based metric for this analysis.</p>",
     "<p>Here, for example, we can see that the state of <span style = 'color: #ff9f3f; font-weight: 700'>Nevada</span> has the highest median prison wage.</p>",
-    "<p>But regardless of the fact that <span style = 'color: #ff9f3f; font-weight: 700'>Nevada</span> ranks highest in median prison wages, incarcerated workers in this state are compensated <span style = 'color: #7695c4; font-weight: 700'>7.80 $/hour</span> less than the government mandated minimum compensation of <span style = 'color: #7695c4; font-weight: 700'>10.50 $/hour</span>.</p>",
+    "<p>But regardless of the fact that <span style = 'color: #ff9f3f; font-weight: 700'>Nevada</span> ranks highest in median prison wages, incarcerated workers in this state are compensated <span style = 'color: #7695c4; font-weight: 700'>7.80 $/hour</span> less than the government mandated minimum wage of <span style = 'color: #7695c4; font-weight: 700'>10.50 $/hour</span>.</p>",
     "<p>Alternatively, while the government mandated minimum wages in <span style = 'color: #ff9f3f; font-weight: 700'>Arkansas</span>, <span style = 'color: #ff9f3f; font-weight: 700'>Georgia</span>, and <span style = 'color: #ff9f3f; font-weight: 700'>Texas</span> are <span style = 'color: #7695c4; font-weight: 700'>11.00 $/hour</span>, <span style = 'color: #7695c4; font-weight: 700'>7.25 $/hour</span>, and <span style = 'color: #7695c4; font-weight: 700'>7.25 $/hour</span> respectively,</p>",
     "<p>these states don’t compensate incarcerated workers at all for their labor.</p>",
-    "<p>So now that we know this, we can try to understand what a dollar costs in the US prison system in terms of labor. <br></br>In each state, how many hours of labor equate to $1.00 in prison wages? </p>",
+    "<p>Given this information, we can try to understand what a dollar costs in the US prison system in terms of <span style = 'color: #7695c4; font-weight: 700'>labor</span>.<br></br> In each state, how many hours of <span style = 'color: #7695c4; font-weight: 700'>labor</span> equate to <span style = 'color: #7695c4; font-weight: 700'>$1.00</span> in prison wages? </p>",
     "<p>Given the fact that people in Arkansas, Georgia, and Texas aren’t financially compensated at all for their prison labor, folks incarcerated in these states can’t even earn a dollar.</p>",
     "<p>  </p>",
     "<p>But in considering other states, and in terms of labor conducted,</p>",
@@ -53,8 +53,9 @@
   $: pennyStacksNV_gap = [2];
   $: pennyStacksWS_stateMin = [3];
   $: pennyStacksWS_gap = [4];
+  $: laborPerDollar = [5];
   $: center = [];
-  $: blank = [5,6];
+  $: blank = [];
 
   $: svgName = blur.includes(value)
     ? "MedianWage_blur_app"
@@ -70,6 +71,8 @@
     ? "MedianWageWS_stateMin_app"
     : pennyStacksWS_gap.includes(value)
     ? "MedianWage_WS_gap"
+    : laborPerDollar.includes(value)
+    ? "LaborPerDollar_app"
     : "MedianWage_blur_app";
 
   $: align = center.includes(value) ? "center" : "left";
@@ -164,7 +167,8 @@
           </div> -->
           <!-- <img href="./public/svg/{svgName}.svg" alt="Visualization related to what a dollar costs for folks incarcerated in the US" width="70%"> -->
           <svg width={imgWidth} height={imgHeight}>
-            <image xlink:href="./public/svg/{svgName}.svg" width="100%" />
+            <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            <!-- <image xlink:href="./public/svg/{svgName}.svg" width="100%" /> -->
             {#if value === 1}
               <Arrow x1={80} x2={50} y1={100} y2={100} />
               {#each 'At 2.70 $/hour, Nevada//has the highest//median prison wage'.split('//') as substring, i}
