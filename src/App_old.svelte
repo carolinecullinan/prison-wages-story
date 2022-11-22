@@ -124,26 +124,7 @@
     ? penIconUrl
     : "Blank_app";
 
-  $: transform = blur.includes(value)||
-                 pennyStacks.includes(value)||
-                 pennyStacksNV_gap.includes(value)||
-                 pennyStacksWS_stateMin.includes(value)||
-                 pennyStacksWS_gap.includes(value)||
-                 laborPerPhone15.includes(value)?
-                  `translate(${imgWidth/2-(imgWidth*0.9)/2}, ${(innerHeight-(imgHeight*0.9))/2})`:
-                 phoneIcon.includes(value)||
-                 toothpasteIcon.includes(value)||
-                 riceIcon.includes(value)||
-                 penIcon.includes(value)?
-                  `translate(${imgWidth/2-(imgWidth*0.9)/2}, ${(innerHeight/2)-(imgHeight/2)/2})`:
-                 laborPerDollarBlur.includes(value)||
-                 laborPerDollar.includes(value)?
-                  `translate(${imgWidth/2-(imgWidth*.89)/2}, ${(innerHeight-(imgHeight*1.2))/2})`:
-                 laborPerToothpaste.includes(value)||
-                 laborPerRice.includes(value)||
-                 LaborPerPen.includes(value)?
-                  `translate(${imgWidth/2-(imgWidth*.91)/2}, ${(innerHeight-(imgHeight*.99))/2})`:
-                  `translate(${imgWidth/2-(imgWidth*0.9)/2}, ${(innerHeight-(imgHeight*1.2))/2})`;
+  $: transform = `transform:translate(${imgWidth/2-(imgWidth*0.9)/2}px, ${(innerHeight-(imgHeight*0.9))/2}px)`
 
   $: align = center.includes(value) ? "center" : "left";
 
@@ -171,12 +152,54 @@
   bind:outerWidth
 />
 <main>
+  <!-- <div>
+    <a href="https://vitejs.dev" target="_blank" rel="noreferrer"> 
+      <img src="/vite.svg" class="logo" alt="Vite Logo" />
+    </a>
+    <a href="https://svelte.dev" target="_blank" rel="noreferrer"> 
+      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
+    </a>
+  </div>
+  <h1>Vite + Svelte</h1>
+
+  <div class="card">
+    <Counter />
+  </div>
+  <div class="card">
+    <button on:click={()=>{
+      // shapeShift('circles')
+      shape='circles'
+      }}>
+      Circles
+    </button>
+
+    <button on:click={()=>{
+    // shapeShift('rectangles')
+    shape='rectangles'
+    }}>
+      Rectangles
+    </button>
+
+    {#if shape==='circles'}
+      <Circles />
+    {:else}
+      <Rectangles/>     
+    {/if}
+  </div>
+
+  <p>
+    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
+  </p>
+
+  <p class="read-the-docs">
+    Click on the Vite and Svelte logos to learn more
+  </p> -->
   {#if laptop}
     <section>
       <Intro />
     </section>
     <section>
-      <!-- <div class="hero" /> -->
+      <div class="hero" />
       <div class="section-container">
         <div class="steps-container">
           <Scrolly bind:value>
@@ -190,25 +213,206 @@
             <div class="spacer" />
           </Scrolly>
         </div>
+        <!-- {#if value!==undefined} -->
         <div class="sticky">
-         
+          <!-- <div class= "stickyContent" style="background-color: {color};">
+
+          </div> -->
+          <!-- <img href="./public/svg/{svgName}.svg" alt="Visualization related to what a dollar costs for folks incarcerated in the US" width="70%"> -->
           <svg width={imgWidth} height={imgHeight}>
-            <g transform={transform}>
+            <g>
+            {#if !blur.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
               <image
                 xlink:href={svgName}
                 width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*0.9))/2}px)"
               />
-              <!-- style={transform} -->
+            {/if}
 
-              <!-- width="90%" -->
+            {#if !pennyStacks.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*0.9))/2}px)"
+              />
+            {/if}
 
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !pennyStacksNV_gap.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*0.9))/2}px)"
+              />
+            {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !pennyStacksWS_stateMin.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*0.9))/2}px)"
+              />
+            {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !pennyStacksWS_gap.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*0.9))/2}px)"
+              />
+            {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !laborPerDollarBlur.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*1.2))/2}px)"
+              />
+            {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !laborPerDollar.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*1.2))/2})"
+              />
+            {/if}
+
+                       <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !blank.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight-(imgHeight*1.2))/2})"
+              />
+            {/if}
+
+            <!-- style="transform:translate(80px, -140px)" -->
+
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !phoneIcon.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight/2)-(imgHeight/2)/2}px)"
+              />
+            {/if}
+
+            {#if !laborPerPhone15.includes(value)}
+            <image xlink:href="./svg/{svgName}.svg" width="100%" />
+          {:else}
+            <image
+              xlink:href={svgName}
+              width="100%"
+              style="transform:translate({imgWidth/2-(imgWidth*1)/2}px, {(innerHeight-(imgHeight*1))/2}px)"
+            />
+          {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !toothpasteIcon.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight/2)-(imgHeight/2)/2}px)"
+              />
+            {/if}
+
+            {#if !laborPerToothpaste.includes(value)}
+            <image xlink:href="./svg/{svgName}.svg" width="100%" />
+          {:else}
+            <image
+              xlink:href={svgName}
+              width="100%"
+              style="transform:translate({imgWidth/2-(imgWidth*1)/2}px, {(innerHeight-(imgHeight*1))/2}px)"
+            />
+          {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !riceIcon.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight/2)-(imgHeight/2)/2}px)"
+              />
+            {/if}
+
+            {#if !laborPerRice.includes(value)}
+            <image xlink:href="./svg/{svgName}.svg" width="100%" />
+          {:else}
+            <image
+              xlink:href={svgName}
+              width="90%"
+              style="transform:translate({imgWidth/2-(imgWidth*1)/2}px, {(innerHeight-(imgHeight*1))/2}px)"
+            />
+          {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !penIcon.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight/2)-(imgHeight/2)/2}px)"
+              />
+            {/if}
+
+            
+            {#if !LaborPerPen.includes(value)}
+            <image xlink:href="./svg/{svgName}.svg" width="100%" />
+          {:else}
+            <image
+              xlink:href={svgName}
+              width="90%"
+              style="transform:translate({imgWidth/2-(imgWidth*1)/2}px, {(innerHeight-(imgHeight*1))/2}px)"
+            />
+          {/if}
+
+            <!-- <svg width={imgWidth} height={imgHeight}> -->
+            {#if !dollarPusher.includes(value)}
+              <image xlink:href="./svg/{svgName}.svg" width="100%" />
+            {:else}
+              <image
+                xlink:href={svgName}
+                width="90%"
+                style="transform:translate({imgWidth/2-(imgWidth*0.9)/2}px, {(innerHeight/2)-(imgHeight/2)/2}px)"
+              />
+            {/if}
+            <!-- <image xlink:href="./public/svg/{svgName}.svg" width="100%" /> -->
             {#if value === 1}
-              <Arrow x1={140} x2={50} y1={90} y2={90} flipAngle={true} />
+              <Arrow x1={175} x2={140} y1={40} y2={30} flipAngle={true} />
               {#each "At 2.70 $/hour, // Nevada has the // highest median // prison wage".split("//") as substring, i}
                 <text
                   class="annotation"
-                  x="140"
-                  y={90 + i * 14}
+                  x="150"
+                  y={60 + i * 14}
                   dx="10"
                   fill="b"
                   >{substring}
@@ -221,8 +425,8 @@
               {#each "With a median prison wage // of 2.70 $/hour incarcerated // workers in Nevada earn 7.8 // $/hour less than Nevada // workers who earn the state // mandated minimum wage // of 10.50 $/hour".split("//") as substring, i}
                 <text
                   class="annotation"
-                  x="150"
-                  y={200 + i * 14}
+                  x="180"
+                  y={225 + i * 14}
                   dx="10"
                   fill="b"
                   >{substring}
@@ -231,13 +435,13 @@
             {/if}
 
             {#if value === 4}
-              <Arrow x1={650} x2={450} y1={500} y2={590} />
+              <Arrow x1={670} x2={620} y1={550} y2={590} />
               {#each "Incarcerated workers // in Arkansas, Georgia, // and Texas earn 0 $/hour".split("//") as substring, i}
                 <text
                   class="annotation"
                   x="600"
                   y={500 + i * 14}
-                  dy="-40"
+                  dx="10"
                   fill="b"
                   >{substring}
                 </text>
@@ -245,21 +449,21 @@
             {/if}
 
             {#if value === 6}
-              <Arrow x1={680} x2={570} y1={620} y2={680} />
+              <Arrow x1={40} x2={90} y1={570} y2={640} flipAngle={true} />
               {#each "In Arkansas, Georgia, // and Texas, prison // labor is done for free. //  Incarcerated people //cannot earn a dollar // worth of income in // these states".split("//") as substring, i}
-                <text class="annotation" x="680" y={520 + i * 14} dx="-50" fill="b"
+                <text class="annotation" x="0" y={470 + i * 14} dx="10" fill="b"
                   >{substring}
                 </text>
               {/each}
             {/if}
 
             {#if value === 7}
-              <Arrow x1={680} x2={610} y1={620} y2={670} />
+              <Arrow x1={730} x2={720} y1={570} y2={600} />
               {#each "In Alabama, incarcerated// people have to work,// on average, 8 hours// and 20 miuntes for// a dollar of earnings".split("//") as substring, i}
                 <text
                   class="annotation"
-                  x="600"
-                  y={550 + i * 14}
+                  x="650"
+                  y={500 + i * 14}
                   dx="10"
                   fill="b"
                   >{substring}
@@ -268,144 +472,46 @@
             {/if}
 
             {#if value === 8}
-              <Arrow x1={270} x2={100} y1={200} y2={100} flipAngle={true}/>
+              <Arrow x1={240} x2={210} y1={50} y2={60} />
               {#each "On average, incarcerated// people in Nevada have// to work about 22 minutes// to earn a single dollar".split("//") as substring, i}
                 <text
                   class="annotation"
-                  x="210"
-                  y={215 + i * 14}
+                  x="245"
+                  y={50 + i * 14}
                   dx="10"
                   fill="b"
                   >{substring}
                 </text>
               {/each}
             {/if}
-
-            {#if value === 11}
-            <Arrow x1={100} x2={60} y1={40} y2={20} flipAngle={true}/>
-            {#each "Phone calls in // Connecticut // and California // are free.  ".split("//") as substring, i}
-              <text
-                class="annotation"
-                x="100"
-                y={50 + i * 14}
-                dx="5"
-                fill="b"
-                >{substring}
-              </text>
-            {/each}
-
-            <Arrow x1={80} x2={20} y1={500} y2={440} />
-            {#each "Incarcerated people are not // paid for their labor // in Arkansas, Georgia, // and Texas, so their // hard-work can't buy // phone time".split("//") as substring, i}
-              <text
-                class="annotation"
-                x="80"
-                y={500 + i * 14}
-                dx="10"
-                fill="b"
-                >{substring}
-              </text>
-            {/each}
-
-            <Arrow x1={690} x2={710} y1={320} y2={405} />
-            {#each "People incarcerated in // Pennsylvania have to // work almost 4 full 8-work // days in order to be able // to make a 15-minute // phone call ".split("//") as substring, i}
-              <text
-                class="annotation"
-                x="550"
-                y={270 + i * 14}
-                dx="10"
-                fill="b"
-                >{substring}
-              </text>
-            {/each}
-
-            
-          {/if}
-
-          {#if value === 13}
-          <Arrow x1={130} x2={80} y1={30} y2={10} flipAngle={true}/>
-          {#each "In Maine, the average // tube of toothpaste can // be bought with about 2 // hours and 15 minutes of // prison labor ".split("//") as substring, i}
-            <text
-              class="annotation"
-              x="130"
-              y={45 + i * 14}
-              dx="0"
-              fill="b"
-              >{substring}
-            </text>
-          {/each}
-
-          <Arrow x1={640} x2={690} y1={440} y2={540} />
-          {#each "Prison canteen toothpaste // costs about 4 full 8-hour // work days worth // of labor in Alabama ".split("//") as substring, i}
-            <text
-              class="annotation"
-              x="490"
-              y={420 + i * 14}
-              dx="10"
-              fill="b"
-              >{substring}
-            </text>
-          {/each}
-
-        {/if}
-
-        {#if value === 15}
-          <Arrow x1={130} x2={95} y1={30} y2={10} flipAngle={true}/>
-          {#each "New Jersey prison // canteen rice can be // purchased for about // an hour of prison labor".split("//") as substring, i}
-            <text
-              class="annotation"
-              x="130"
-              y={20 + i * 14}
-              dx="5"
-              fill="b"
-              >{substring}
-            </text>
-          {/each}
-
-          <Arrow x1={740} x2={700} y1={430} y2={500} />
-          {#each "In Alabama, prison // canteen rice can be // purchased with about // 12 hours of prison // labor ".split("//") as substring, i}
-            <text
-              class="annotation"
-              x="600"
-              y={400 + i * 14}
-              dx="10"
-              fill="b"
-              >{substring}
-            </text>
-          {/each}
-
-        {/if}
-
-        {#if value === 17}
-        <Arrow x1={80} x2={50} y1={30} y2={10} flipAngle={true}/>
-        {#each "With 12 minutes of prison work, // incarcerated people in Minnesota // can purchase an ink pen from the // prison canteen".split("//") as substring, i}
-            <text
-              class="annotation"
-              x="80"
-              y={35 + i * 14}
-              dx="5"
-              fill="b"
-              >{substring}
-            </text>
-          {/each}
-
-          <Arrow x1={690} x2={660} y1={390} y2={480} />
-          {#each "In Alabama, incarcerated // people need to work // for roughly 16 hours // in order to be able //  to afford an ink pen".split("//") as substring, i}
-            <text
-              class="annotation"
-              x="560"
-              y={380 + i * 14}
-              dx="0"
-              fill="b"
-              >{substring}
-            </text>
-          {/each}
-
-        {/if}
+            <!-- </svg>
+                              </svg></svg
+                            ></svg
+                          ></svg
+                        >
+                      </svg>
+                    </svg></svg
+                  >
+                </svg>
+              </svg>
+            </svg> -->
             </g>
           </svg>
         </div>
-
+        <!-- {:else}
+        <div class="sticky">
+          
+        </div>
+      {/if} -->
       </div>
+      <!-- <div class="hero">
+        <h1>Thanks!</h1>
+        <h2>
+          <a href="https://twitter.com/CL_Rothschild" target="_blank"
+            >Questions and Tips</a
+          >
+        </h2>
+      </div> -->
     </section>
     <section>
       <Outro />
@@ -419,7 +525,20 @@
 </main>
 
 <style>
-
+  /* .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.svelte:hover {
+    filter: drop-shadow(0 0 2em #ff3e00aa);
+  }
+  .read-the-docs {
+    color: #888;
+  } */
 
   :global(body) {
     overflow-x: hidden;

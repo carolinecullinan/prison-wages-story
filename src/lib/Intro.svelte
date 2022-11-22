@@ -49,7 +49,7 @@
 <style>
     a {
         font-weight: 500;
-        color: black;
+        color:  #213547;
         text-decoration: underline;
     }
     a:hover {
@@ -65,6 +65,7 @@
         margin-bottom: 60px;
         max-width: 650px;
         margin: auto;
+        color: #213547;
     }
 
     h2 {
@@ -88,5 +89,9 @@
     .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0, "opsz" 48;
         font-size: 48px;
+    }
+
+    h1 {
+        font-size: 56px;
     }
 </style>
