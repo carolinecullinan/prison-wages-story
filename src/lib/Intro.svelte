@@ -1,10 +1,10 @@
 <script>
-    import imgUrl from '../svg/RunningDollar_app.png'
+    import imgUrl from "../svg/RunningDollar_app.png";
 </script>
 
 <div class="title">
     <h1>WHAT'S A DOLLAR COST?</h1>
-    <h2 >
+    <h2>
         EXPLORING THE PRICE OF INCARCERATION WITHIN THE UNITED STATES PRISON
         SYSTEM
     </h2>
@@ -37,9 +37,9 @@
     <p class="centerParagraph">So, what’s a dollar cost to these folks?</p>
     <p>
         While this value varies across types of detention centers throughout
-        different US states, one thing is consistent: the dollar of an incarcerated
-        person is far harder earned than the dollar of someone not subjected to
-        the US prison system.
+        different US states, one thing is consistent: the dollar of an
+        incarcerated person is far harder earned than the dollar of someone not
+        subjected to the US prison system.
     </p>
     <p class="centerParagraph">How so?</p>
     <p class="centerParagraph">Scroll below to find out.</p>
@@ -47,22 +47,34 @@
 <span class="material-symbols-outlined"> arrow_drop_down </span>
 
 <style>
+    a {
+        font-weight: 500;
+        color: black;
+        text-decoration: underline;
+    }
+    a:hover {
+        color: rgb(88, 8, 88);
+    }
     .title {
         height: 60vh;
         display: flex;
         place-items: center;
         flex-direction: column;
         justify-content: center;
-        text-align: center;;
+        text-align: center;
         margin-bottom: 60px;
         max-width: 650px;
-        margin:auto
+        margin: auto;
     }
 
-    h2{
+    h2 {
         font-weight: 400;
     }
 
+    h4 {
+        font-weight: 400;
+        font-size: smaller;
+    }
     .introParagraph {
         text-align: justify;
         max-width: 500px;
@@ -75,6 +87,6 @@
 
     .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0, "opsz" 48;
-        font-size: 48px
+        font-size: 48px;
     }
 </style>
