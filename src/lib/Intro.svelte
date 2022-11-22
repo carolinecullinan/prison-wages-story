@@ -37,7 +37,7 @@
     <p class="centerParagraph">So, what’s a dollar cost to these folks?</p>
     <p>
         While this value varies across types of detention centers throughout
-        different states, one thing is consistent: the dollar of an incarcerated
+        different US states, one thing is consistent: the dollar of an incarcerated
         person is far harder earned than the dollar of someone not subjected to
         the US prison system.
     </p>
