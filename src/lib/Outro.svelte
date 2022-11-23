@@ -15,7 +15,7 @@
 <div class = 'centerParagraph'>
     <p style="text-align:center">So, what’s a dollar cost for folks subjected to US incarceration?<br><br></p>
 
-   <p>That greatly and unjustly depends on the US state in which someone is experiencing incarceration.</p>
+   <p>That greatly and unjustly depends on the US state in which someone is experiencing incarceration.<br><br></p>
 </div>
 
 

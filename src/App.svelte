@@ -25,6 +25,7 @@
   import LaborPerRice_appUrl from "./svg/LaborPerRice_app.png";
   import LaborPerPen_appUrl from "./svg/LaborPerPen_app.png";
   import Blank_appUrl from "./svg/Blank_app.png";
+    import Method from "./lib/Method.svelte";
 
 
 
@@ -409,6 +410,9 @@
     </section>
     <section>
       <Outro />
+    </section>
+    <section>
+      <Method />
     </section>
   {:else}
     <h2>
