@@ -1,13 +1,14 @@
 <script>
   // @ts-ignore
-  import svelteLogo from "./assets/svelte.svg";
-  import Counter from "./lib/Counter.svelte";
-  import Circles from "./lib/Circles.svelte";
-  import Rectangles from "./lib/Rectangles.svelte";
+  // import svelteLogo from "./assets/svelte.svg";
+  // import Counter from "./lib/Counter.svelte";
+  // import Circles from "./lib/Circles.svelte";
+  // import Rectangles from "./lib/Rectangles.svelte";
   import Scrolly from "./lib/Scrolly.svelte";
   import Intro from "./lib/Intro.svelte";
   import Outro from "./lib/Outro.svelte";
   import Arrow from "./lib/Arrow.svelte";
+  import { fade } from "svelte/transition";
 
   import laborPerDollarUrl from "./svg/LaborPerDollar_app.png";
   import phoneIconUrl from "./svg/phoneIcon_app.png";
@@ -25,7 +26,7 @@
   import LaborPerRice_appUrl from "./svg/LaborPerRice_app.png";
   import LaborPerPen_appUrl from "./svg/LaborPerPen_app.png";
   import Blank_appUrl from "./svg/Blank_app.png";
-    import Method from "./lib/Method.svelte";
+  import Method from "./lib/Method.svelte";
 
 
 
@@ -125,6 +126,7 @@
     ? penIconUrl
     : "Blank_app";
 
+
   $: transform = blur.includes(value)||
                  pennyStacks.includes(value)||
                  pennyStacksNV_gap.includes(value)||
@@ -195,18 +197,20 @@
          
           <svg width={imgWidth} height={imgHeight}>
             <g transform={transform}>
-              <image
-                xlink:href={svgName}
-                width="90%"
-              />
+                <image
+                  xlink:href={svgName}
+                  width="90%"
+                />
               <!-- style={transform} -->
 
               <!-- width="90%" -->
 
             {#if value === 1}
-              <Arrow x1={140} x2={50} y1={90} y2={90} flipAngle={true} />
+              <Arrow x1={140} x2={50} y1={90} y2={90} flipAngle={true} delay={1000} duration={500}/>
               {#each "At 2.70 $/hour, // Nevada has the // highest median // prison wage".split("//") as substring, i}
                 <text
+                  in:fade={{ delay: 1000, duration: 500 }}
+                  out:fade={{ delay: 0, duration: 0 }}
                   class="annotation"
                   x="140"
                   y={90 + i * 14}
@@ -218,9 +222,11 @@
             {/if}
 
             {#if value === 2}
-              <Arrow x1={0} x2={0} y1={0} y2={0} />
+              <Arrow x1={0} x2={0} y1={0} y2={0} delay={1000} duration={500}/>
               {#each "With a median prison wage // of 2.70 $/hour incarcerated // workers in Nevada earn 7.8 // $/hour less than Nevada // workers who earn the state // mandated minimum wage // of 10.50 $/hour".split("//") as substring, i}
                 <text
+                in:fade={{ delay: 1000, duration: 500 }}
+                out:fade={{ delay: 0, duration: 0 }}
                   class="annotation"
                   x="150"
                   y={200 + i * 14}
@@ -232,9 +238,11 @@
             {/if}
 
             {#if value === 4}
-              <Arrow x1={650} x2={450} y1={500} y2={590} />
+              <Arrow x1={650} x2={450} y1={500} y2={590} delay={1000} duration={500}/>
               {#each "Incarcerated workers // in Arkansas, Georgia, // and Texas earn 0 $/hour".split("//") as substring, i}
                 <text
+                in:fade={{ delay: 1000, duration: 500 }}
+                out:fade={{ delay: 0, duration: 0 }}
                   class="annotation"
                   x="600"
                   y={500 + i * 14}
@@ -246,18 +254,23 @@
             {/if}
 
             {#if value === 6}
-              <Arrow x1={680} x2={570} y1={620} y2={680} />
+              <Arrow x1={680} x2={570} y1={620} y2={680} delay={1000} duration={500}/>
               {#each "In Arkansas, Georgia, // and Texas, prison // labor is done for free. //  Incarcerated people //cannot earn a dollar // worth of income in // these states".split("//") as substring, i}
-                <text class="annotation" x="680" y={520 + i * 14} dx="-50" fill="b"
+                <text 
+                in:fade={{ delay: 1000, duration: 500 }}
+                out:fade={{ delay: 0, duration: 0 }}
+                class="annotation" x="680" y={520 + i * 14} dx="-50" fill="b"
                   >{substring}
                 </text>
               {/each}
             {/if}
 
             {#if value === 7}
-              <Arrow x1={680} x2={610} y1={620} y2={670} />
+              <Arrow x1={680} x2={610} y1={620} y2={670}  delay={1000} duration={500}/>
               {#each "In Alabama, incarcerated// people have to work,// on average, 8 hours// and 20 minuntes for// a dollar of earnings".split("//") as substring, i}
                 <text
+                in:fade={{ delay: 1000, duration: 500 }}
+                out:fade={{ delay: 0, duration: 0 }}
                   class="annotation"
                   x="600"
                   y={550 + i * 14}
@@ -269,9 +282,11 @@
             {/if}
 
             {#if value === 8}
-              <Arrow x1={270} x2={100} y1={200} y2={100} flipAngle={true}/>
+              <Arrow x1={270} x2={100} y1={200} y2={100} flipAngle={true} delay={1000} duration={500}/>
               {#each "On average, incarcerated// people in Nevada have// to work about 22 minutes// to earn a single dollar".split("//") as substring, i}
                 <text
+                in:fade={{ delay: 1000, duration: 500 }}
+                out:fade={{ delay: 0, duration: 0 }}
                   class="annotation"
                   x="210"
                   y={215 + i * 14}
@@ -283,9 +298,11 @@
             {/if}
 
             {#if value === 11}
-            <Arrow x1={100} x2={60} y1={40} y2={20} flipAngle={true}/>
+            <Arrow x1={100} x2={60} y1={40} y2={20} flipAngle={true} delay={1000} duration={500}/>
             {#each "Phone calls in // Connecticut // and California // are free.  ".split("//") as substring, i}
               <text
+              in:fade={{ delay: 1000, duration: 500 }}
+              out:fade={{ delay: 0, duration: 0 }}
                 class="annotation"
                 x="100"
                 y={50 + i * 14}
@@ -295,9 +312,11 @@
               </text>
             {/each}
 
-            <Arrow x1={80} x2={20} y1={500} y2={440} />
+            <Arrow x1={80} x2={20} y1={500} y2={440} delay={1000} duration={500}/>
             {#each "Incarcerated people are not // paid for their labor // in Arkansas, Georgia, // and Texas, so their // hard-work can't buy // phone time".split("//") as substring, i}
               <text
+              in:fade={{ delay: 1000, duration: 500 }}
+              out:fade={{ delay: 0, duration: 0 }}
                 class="annotation"
                 x="80"
                 y={500 + i * 14}
@@ -307,9 +326,11 @@
               </text>
             {/each}
 
-            <Arrow x1={690} x2={710} y1={320} y2={405} />
+            <Arrow x1={690} x2={710} y1={320} y2={405} delay={1000} duration={500}/>
             {#each "People incarcerated in // Pennsylvania have to // work almost 4 full 8-hour work // days in order to be able // to make a 15-minute // phone call ".split("//") as substring, i}
               <text
+              in:fade={{ delay: 1000, duration: 500 }}
+              out:fade={{ delay: 0, duration: 0 }}
                 class="annotation"
                 x="550"
                 y={270 + i * 14}
@@ -323,9 +344,11 @@
           {/if}
 
           {#if value === 13}
-          <Arrow x1={130} x2={80} y1={30} y2={10} flipAngle={true}/>
+          <Arrow x1={130} x2={80} y1={30} y2={10} flipAngle={true} delay={1000} duration={500}/>
           {#each "In Maine, the average // tube of toothpaste can // be bought with about 2 // hours and 15 minutes of // prison labor ".split("//") as substring, i}
             <text
+            in:fade={{ delay: 1000, duration: 500 }}
+            out:fade={{ delay: 0, duration: 0 }}
               class="annotation"
               x="130"
               y={45 + i * 14}
@@ -335,9 +358,11 @@
             </text>
           {/each}
 
-          <Arrow x1={640} x2={690} y1={440} y2={540} />
+          <Arrow x1={640} x2={690} y1={440} y2={540} delay={1000} duration={500}/>
           {#each "Prison canteen toothpaste // costs about 4 full 8-hour // work days worth // of labor in Alabama ".split("//") as substring, i}
             <text
+            in:fade={{ delay: 1000, duration: 500 }}
+            out:fade={{ delay: 0, duration: 0 }}
               class="annotation"
               x="490"
               y={420 + i * 14}
@@ -350,9 +375,11 @@
         {/if}
 
         {#if value === 15}
-          <Arrow x1={130} x2={95} y1={30} y2={10} flipAngle={true}/>
+          <Arrow x1={130} x2={95} y1={30} y2={10} flipAngle={true} delay={1000} duration={500}/>
           {#each "New Jersey prison // canteen rice can be // purchased for about // an hour of prison labor".split("//") as substring, i}
             <text
+            in:fade={{ delay: 1000, duration: 500 }}
+            out:fade={{ delay: 0, duration: 0 }}
               class="annotation"
               x="130"
               y={20 + i * 14}
@@ -362,9 +389,11 @@
             </text>
           {/each}
 
-          <Arrow x1={740} x2={700} y1={430} y2={500} />
+          <Arrow x1={740} x2={700} y1={430} y2={500} delay={1000} duration={500}/>
           {#each "In Alabama, prison // canteen rice can be // purchased with about // 12 hours of prison // labor ".split("//") as substring, i}
             <text
+            in:fade={{ delay: 1000, duration: 500 }}
+            out:fade={{ delay: 0, duration: 0 }}
               class="annotation"
               x="600"
               y={400 + i * 14}
@@ -377,9 +406,11 @@
         {/if}
 
         {#if value === 17}
-        <Arrow x1={80} x2={50} y1={30} y2={10} flipAngle={true}/>
+        <Arrow x1={80} x2={50} y1={30} y2={10} flipAngle={true} delay={1000} duration={500}/>
         {#each "With 12 minutes of prison work, // incarcerated people in Minnesota // can purchase an ink pen from the // prison canteen".split("//") as substring, i}
             <text
+            in:fade={{ delay: 1000, duration: 500 }}
+            out:fade={{ delay: 0, duration: 0 }}
               class="annotation"
               x="80"
               y={35 + i * 14}
@@ -389,9 +420,11 @@
             </text>
           {/each}
 
-          <Arrow x1={690} x2={660} y1={390} y2={480} />
+          <Arrow x1={690} x2={660} y1={390} y2={480} delay={1000} duration={500}/>
           {#each "In Alabama, incarcerated // people need to work // for roughly 16 hours // in order to be able //  to afford an ink pen".split("//") as substring, i}
             <text
+            in:fade={{ delay: 1000, duration: 500 }}
+            out:fade={{ delay: 0, duration: 0 }}
               class="annotation"
               x="560"
               y={380 + i * 14}
@@ -467,12 +500,13 @@
   }
 
   .step {
-    height: 90vh;
+    height: 140vh;
     display: flex;
     place-items: center;
     justify-content: center;
     z-index: 100;
     color: #213547;
+    /* border:1px solid black */
   }
 
   .step-content {
@@ -486,6 +520,7 @@
     justify-content: center;
     /* transition: background 500ms ease; */
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+
 
     width: 75%;
     margin: auto;
